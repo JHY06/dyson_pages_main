@@ -448,6 +448,9 @@ figure img {
     font-weight: 700;
     margin: 0px 10px;
     justify-content: center;
+    width: 150px;
+    height: auto;
+    text-align: center;
 }
 
 .load-more-btn:hover {
@@ -524,17 +527,29 @@ figure i.active {
 .product-name {
     font-size: 2rem;
     font-weight: bold;
+    margin: 5px;
+    color: #fff;
 }
 
 .product-price {
     font-size: 1.5rem;
-    color: green;
+    color: #555da4;
+    margin: 5px;
+    width: 300px;
+    height: auto;
+}
+.product-price p {
+    font-weight: 500;
+    margin: 10px;
 }
 
 .product-description {
     font-size: 1rem;
 }
-
+.product-description p {
+    font-weight: 700;
+    font-size: 15px;
+}
 /* Animation for slideshow */
 
 /* figure i {
@@ -567,7 +582,8 @@ figure i.active {
     object-fit: contain;
 } */
 .detailed_description {
-    margin: 0 auto;
+    margin: 0;
+    padding: 35px 0px;
 }
 
 .detailed_description .inner .detailed-img figure img {
@@ -578,7 +594,7 @@ figure i.active {
 }
 .detailed_description .inner .detailed-img {
     display: flex;
-    /* gap: 5px; */
+    gap: 43px;
     justify-content: space-between;
 }
 .detailed_description .inner p {
@@ -598,18 +614,21 @@ figure i.active {
 .buy-button {
     display: flex;
     padding: 20px;
-    padding-left: 125px;
+    /* padding-left: 125px; */
 }
 .product-new {
     color: #fff;
     background: #5c5cdb;
     border-radius: 10px;
-    width: 100px;
+    width: 72px;
+    height: auto;
     text-align: center;
+    font-size: 15px;
 }
 .product-new {
     text-align: center;
-    border: 3px solid orange;
+    border: 2px solid orange;
+    margin: 0;
 }
 
 /* .product-new:hover {
@@ -640,4 +659,125 @@ figure i.active {
 }
 .level-img {
     height: auto;
+    padding: 35px 0px;
+}
+.level-img {
+    position: relative; /* 이미지와 텍스트를 포함하는 섹션을 기준으로 설정 */
+}
+
+.level-img .inner figure {
+    margin: 0;
+    position: relative;
+}
+
+.level-img img {
+    width: 100%; /* 이미지가 컨테이너의 너비에 맞게 조정되도록 설정 */
+    display: block;
+}
+
+.text-overlay {
+    position: absolute;
+    /* bottom: 10px;  */
+    /* top: 345px; */
+    top: 265px;
+    left: 100px;
+    color: white;
+    border: 2px solid #47fbfe;
+    font-size: 30px;
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+}
+.text {
+    position: absolute;
+    /* bottom: 10px;  */
+    /* top: 345px; */
+    top: 310px;
+    left: 85px;
+    color: white;
+    border: 2px solid #47fbfe;
+    font-size: 30px;
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+    text-align: center;
+}
+.detailed-img {
+    padding: 35px 0px;
+}
+.detailedd_description {
+    margin: 0;
+    padding: 35px 0px;
+}
+
+.detailedd_description .inner .detailed-img figure img {
+    /* width: 380px; */
+    width: 649px;
+    height: 300px;
+    gap: 50px;
+}
+.detailedd_description .inner .detailed-img {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+.detailedd_description .inner p {
+    color: #fff;
+    padding: 5px;
+}
+.detailedd_description .inner img figcaption {
+    display: flex;
+}
+.bbuy-btn {
+    padding: 10px 20px;
+    background-color: #5c5cdb;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    /* display: block; */
+    font-weight: 800;
+}
+
+.bbuy-btn:hover {
+    background-color: orange;
+}
+.bbuy-btn:hover {
+    background-color: orange;
+    color: #000;
+}
+.bbuy-btn {
+    padding: 10px 20px;
+    background-color: #5c5cdb;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    display: block;
+    font-weight: 700;
+    width: 150px;
+    height: auto;
+    text-align: center;
+}
+.load-more-btnn {
+    padding: 10px 20px;
+    background-color: #5c5cdb;
+    color: white;
+    /* width: 81px; */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    display: block;
+    font-weight: 700;
+    margin: 0px 10px;
+    justify-content: center;
+}
+
+.load-more-btnn:hover {
+    background-color: orange;
+    color: #000;
 }
