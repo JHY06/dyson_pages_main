@@ -2,30 +2,30 @@
 let currentSlide = 0;
 
 function showSlide(index) {
-  const slides = document.querySelector(".slide-container");
-  const totalSlides = document.querySelectorAll(".slide-item").length;
+    const slides = document.querySelector(".slide-container");
+    const totalSlides = document.querySelectorAll(".slide-item").length;
 
-  if (index >= totalSlides) {
-    currentSlide = 0;
-  } else if (index < 0) {
-    currentSlide = totalSlides - 1;
-  } else {
-    currentSlide = index;
-  }
+    if (index >= totalSlides) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+    } else {
+        currentSlide = index;
+    }
 
-  slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
 }
 
 function nextSlide() {
-  showSlide(currentSlide + 1);
+    showSlide(currentSlide + 1);
 }
 
 function prevSlide() {
-  showSlide(currentSlide - 1);
+    showSlide(currentSlide - 1);
 }
 
 window.onload = () => {
-  showSlide(0);
+    showSlide(0);
 };
 
 // // 상품 js
@@ -52,33 +52,55 @@ window.onload = () => {
 // // Optional: Auto-slide every 5 seconds
 // setInterval(nextSlide, 5000);
 let currentIndex = 0;
+const items = document.querySelectorAll(".product-list li"); // Select all product items
+const totalItems = items.length; // Get the total number of items
 
-function showSlides(index) {
-  const slidesContainer = document.querySelector(".slider-container");
-  const totalSlides = document.querySelectorAll(".product-item").length;
+function updateSlidePosition() {
+    const productList = document.querySelector(".product-list");
+    const itemWidth = items[0].clientWidth; // Get the width of a single item
+    productList.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+}
 
-  // Wrap around logic
-  if (index >= totalSlides) {
-    currentIndex = 0; // Wrap around to the first slide
-  } else if (index < 0) {
-    currentIndex = totalSlides - 1; // Wrap around to the last slide
-  } else {
-    currentIndex = index; // Set current index
-  }
-
-  // Move the slides container by the currentIndex
-  slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+function prevxSlide() {
+    if (currentIndex > 0) {
+        currentIndex--; // Move to the previous item
+    } else {
+        currentIndex = totalItems - 1; // Wrap to the last item
+    }
+    updateSlidePosition(); // Update the slide position
 }
 
 function nexttSlide() {
-  showSlides(currentIndex + 1); // Go to the next slide
+    if (currentIndex < totalItems - 1) {
+        currentIndex++; // Move to the next item
+    } else {
+        currentIndex = 0; // Wrap to the first item
+    }
+    updateSlidePosition(); // Update the slide position
 }
-
-function prevvSlide() {
-  showSlides(currentIndex - 1); // Go to the previous slide
-}
-
-// Initial display
-window.onload = () => {
-  showSlides(0); // Show the first slide on load
-};
+document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper(".product-slider", {
+        slidesPerView: 3, // Adjust the number of slides visible at once
+        spaceBetween: 20, // Space between slides
+        navigation: {
+            nextEl: ".nextx", // Selector for the next button
+            prevEl: ".prevx", // Selector for the previous button
+        },
+        pagination: {
+            el: ".swiper-pagination", // If you want pagination bullets
+            clickable: true, // Allow clicking on pagination bullets
+        },
+        breakpoints: {
+            // Responsive settings
+            1024: {
+                slidesPerView: 3, // 3 slides on large screens
+            },
+            768: {
+                slidesPerView: 2, // 2 slides on medium screens
+            },
+            480: {
+                slidesPerView: 1, // 1 slide on small screens
+            },
+        },
+    });
+});
